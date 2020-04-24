@@ -1,0 +1,96 @@
+body{
+    font-family: 'Fira Code', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #171717;
+    height: 100vh;
+    width: 100%;
+}
+
+#container{
+    height: 100vh;
+    width: 100%;
+}
+
+#register{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    min-width: 450px;
+    width: 50%;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+}
+
+#register h1{
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.register-input{
+    color: #fff;
+    border: none;
+    margin: 10px auto;
+    border-bottom: 1px solid hsla(0, 0%, 100%, .5);
+    width: 70%;
+    background-color: transparent;
+    outline: none;
+    padding: 0 5px;
+    font-size: 16px;
+}
+
+.register-btn{
+    background-color: #fff;
+    color: #171717;
+    border: none;
+    outline: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.register-about{
+    color: #fff;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.register-about p{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.account{
+    padding-top: 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.btn{
+    padding: 20px 0;
+    text-align: center;
+}
+
+#login-link{
+    color: #fff;
+    font-size: 16px;
+}
+
+.alert-error{
+    text-align: center;
+    color: #6f42c1;
+}
+
+.alert-global-errors{
+    margin-bottom: 12px;
+    text-align: center;
+    color: #6f42c1;
+}
