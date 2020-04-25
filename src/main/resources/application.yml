@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/chat
     username: postgres
-    password: cTddata
+    password: password
     hikari:
       maximumPoolSize: 2
       connectionTimeout: 40000

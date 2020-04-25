@@ -1,41 +1,37 @@
 const messageArea = document.querySelector('#chat-area');
 const chatForm = document.querySelector('#chat-form');
 const messageInput = document.querySelector('#message');
-const connectingElement = document.querySelector('.connecting');
+const errorElement = document.querySelector('.error');
 
 var stompClient = null;
 
 function connect(event){
-    username = username.innerText;
-
     if(username){
         let socket = new SockJS('/ws');
         stompClient = Stomp.over(socket);
-
         stompClient.connect({}, onConnected, onError);
     }
 }
 
 function onConnected() {
     stompClient.subscribe('/topic/public', onMessageReceived)
-
-    stompClient.sendMessage('/app/chat.addUser',
+    stompClient.send('/app/chat.addUser',
         {},
         JSON.stringify({sender: username, type: 'JOIN'})
     )
 }
 
 function onError(error){
-    connectingElement.textContent = 'Could not connect to WebSocket server. Please refresh this page to try again!';
-    connectingElement.style.color = '#6f42c1';
+    errorElement.textContent = 'Could not connect to WebSocket server. Please refresh this page to try again!';
 }
 
 function sendMessage(event) {
-    let messageContent = messageContent.value.trim();
+    let messageContent = messageInput.value.trim();
     if(messageContent && stompClient) {
+    console.log(messageInput.value);
         let chatMessage = {
             sender: username,
-            messageContent: messageInput.value,
+            content: messageInput.value,
             type: 'CHAT'
         };
         stompClient.send('/app/chat.sendMessage', {}, JSON.stringify(chatMessage));
@@ -47,19 +43,19 @@ function sendMessage(event) {
 function onMessageReceived(payload){
     let message = JSON.parse(payload.body);
 
-    let messageElement = document.createElement('li');
+    let messageElement = document.createElement('div');
 
     if(message.type === 'JOIN'){
         messageElement.classList.add('event-message');
-        message.content = message.sender + ' join!';
+        message.content = message.sender + ' has joined to chat!';
     }else if(message.type === 'LEAVE'){
         messageElement.classList.add('event-message');
-        message.content = message.sender + ' left!';
+        message.content = message.sender + ' has left from chat!';
     }else{
         messageElement.classList.add('chat-message');
 
         let usernameElement = document.createElement('span');
-        let usernameText = document.createTextNode(message.sender);
+        let usernameText = document.createTextNode(message.sender + ':');
         usernameElement.appendChild(usernameText);
         messageElement.appendChild(usernameElement);
     }
@@ -74,6 +70,6 @@ function onMessageReceived(payload){
     messageArea.scrollTop = messageArea.scrollHeight;
 }
 document.addEventListener('DOMContentLoaded', function() {
-    connect
+    connect();
 });
 chatForm.addEventListener('submit', sendMessage, true);

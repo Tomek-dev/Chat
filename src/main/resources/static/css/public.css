@@ -31,6 +31,7 @@ body{
 }
 
 #chat-area{
+    overflow: auto;
     margin-bottom: 30px;
     height: 40vh;
     width: 100%;
@@ -43,7 +44,6 @@ body{
     border: none;
     outline: none;
     padding: 6px 12px;
-    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
 }
@@ -63,4 +63,32 @@ body{
 #chat-form{
     display: flex;
     justify-content: space-around;
+}
+
+.error{
+    margin-bottom: 20px;
+    text-align: center;
+    color: #6f42c1;
+}
+
+.event-message p{
+    margin: 6px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.chat-message{
+    display: flex;
+    color: #fff;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.chat-message p{
+    margin: 6px 0;
+    width: 90%;
+}
+
+.chat-message span{
+    width: 10%;
 }
