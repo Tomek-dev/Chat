@@ -2,12 +2,18 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
     <title>Chat</title>
 </head>
 <body>
     <div id="container">
-        <a th:href="@{/public}">Public</a>
-        <a href="@{/private}">Private</a>
+        <div id="option">
+            <h1>Select channel:</h1>
+            <div class="option-select">
+                <a class="option-link" th:href="@{/public}">Public</a>
+                <a class="option-link" th:href="@{/private}">Private</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
