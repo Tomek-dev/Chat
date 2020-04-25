@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 @Component
@@ -24,12 +25,25 @@ public class Start {
     }
 
     private void init(){
-        User user = UserBuilder.builder()
-                .username("user")
+        User[] users = new User[3];
+        users[0] = UserBuilder.builder()
+                .username("Woody")
                 .password(passwordEncoder.encode("password"))
                 .roles(Collections.singleton(Role.USER))
                 .email("email")
                 .build();
-        userDao.save(user);
+        users[1] = UserBuilder.builder()
+                .username("BuzzLightYear")
+                .password(passwordEncoder.encode("password"))
+                .roles(Collections.singleton(Role.USER))
+                .email("email")
+                .build();
+        users[2] = UserBuilder.builder()
+                .username("Andy")
+                .password(passwordEncoder.encode("password"))
+                .roles(Collections.singleton(Role.USER))
+                .email("email")
+                .build();
+        userDao.saveAll(Arrays.asList(users));
     }
 }

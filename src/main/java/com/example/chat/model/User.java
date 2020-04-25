@@ -29,6 +29,12 @@ public class User implements UserDetails {
 
     private String password;
 
+    @OneToMany(mappedBy = "invited", orphanRemoval = true)
+    private Set<Invite> invites = new HashSet<>();
+
+    @OneToMany(mappedBy = "inviting", orphanRemoval = true)
+    private Set<Invite> invitations = new HashSet<>();
+
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
