@@ -27,6 +27,7 @@ public class ChatController {
     public String privateChat(Model model, @AuthenticationPrincipal User user){
         model.addAttribute("invites", inviteService.findInvites(user));
         model.addAttribute("invitations", inviteService.findInvitations(user));
+        model.addAttribute("friends", "");
         return "private";
     }
 }

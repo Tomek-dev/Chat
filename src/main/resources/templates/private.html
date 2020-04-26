@@ -26,10 +26,10 @@
                     <button type="submit" class="friends-add"><i class="fas fa-user-plus"></i></button>
                 </form>
                 <div id="friends-select">
-                    <button type="button" class="friends-btn" id="friends-select-btn">friends</button>
+                    <button value="friend" type="button" class="friends-btn active" id="friends-select-btn">friends</button>
                     <div id="friends-option">
-                        <button type="button" class="friends-btn select-btn"><i class="fas fa-user-minus"></i></button>
-                        <button type="button" class="friends-btn select-btn"><i class="fas fa-user-check"></i></button>
+                        <button value="invitation" type="button" class="friends-btn select-btn"><i class="fas fa-envelope-open"></i></button>
+                        <button value="invite" type="button" class="friends-btn select-btn"><i class="fas fa-user-check"></i></button>
                     </div>
                 </div>
                 <div id="invite" class="selected-list">
@@ -37,7 +37,7 @@
                         <p th:text="${invite.getInvitingUsername()}"></p>
                     </div>
                 </div>
-                <!--<div id="invitation" class="selected-list">
+                <div id="invitation" class="selected-list">
                     <div th:each="invitation: ${invitations}">
                         <p th:text="${invite.getInvitedUsername()}"></p>
                     </div>
@@ -46,7 +46,7 @@
                     <div th:each="friend: ${friends}">
                         <p th:text="${friend}"></p>
                     </div>
-                </div>-->
+                </div>
             </div>
         </div>
         <form id="chat-form" autocomplete="off" name="chat-form">
@@ -61,6 +61,7 @@
         var username = [[${#authentication.getPrincipal().getUsername()}]];
         var destination = '';
     </script>
+<script type="text/javascript" th:src="@{/js/select.js}"></script>
 <script type="text/javascript" th:src="@{/js/private.js}"></script>
 <script type="text/javascript" th:src="@{/js/webSocketPrivate.js}"></script>
 </body>

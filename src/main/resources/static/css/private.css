@@ -164,3 +164,7 @@ body{
     color: #171717;
     background-color: #fff;
 }
+
+#invite, #invitation{
+    display: none;
+}
