@@ -18,6 +18,7 @@ public class InviteController {
     }
 
     @PostMapping("/invite")
+    @ResponseBody
     public void add(@RequestParam String username, @AuthenticationPrincipal User user){
         inviteService.add(username, user);
     }

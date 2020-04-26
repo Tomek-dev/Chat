@@ -28,7 +28,76 @@ body{
     flex-direction: column;
 }
 
+#chat-content{
+    display: flex;
+}
+
+#chat-friends{
+    padding: 20px 0 30px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#friends-form{
+    display: flex;
+}
+
+#friends-select-btn{
+    width: 60%
+}
+
+#friends-select{
+    padding: 10px 0;
+    width: 100%
+}
+
+#friends-option{
+    width: 40%
+}
+
+.selected-list{
+    border: 2px solid #fff;
+    height: 100%;
+}
+
+.friends-add{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    margin: 7px 0;
+    cursor: pointer;
+}
+
+.select-btn{
+    width: 50%;
+    border-left: none !important;
+}
+
+.friends-btn{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-weight: 600;
+    border: 1px solid #fff;
+    padding: 4px 0;
+    cursor: pointer;
+}
+
+#friends-select, #friends-option{
+    display: flex;
+    align-items: center;
+}
+
 #chat-header h1{
+    color: #fff;
+    text-align: center;
+}
+
+#chat-header p{
+    margin: 0;
     color: #fff;
     text-align: center;
 }
@@ -88,10 +157,10 @@ body{
 }
 
 .chat-message p{
-    margin: 6px 0;
-    width: 90%;
+    margin: 6px 0 6px 6px;
 }
 
-.chat-message span{
-    width: 10%;
+.active{
+    color: #171717;
+    background-color: #fff;
 }

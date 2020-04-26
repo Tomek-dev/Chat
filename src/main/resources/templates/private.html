@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/jdbc">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/private.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <title>Chat</title>
+</head>
+<body>
+<div id="chat-page">
+    <div id="chat-container">
+        <div id="chat-header">
+            <h1>Private Chat</h1>
+        </div>
+        <div class="error">
+
+        </div>
+        <div id="chat-content">
+            <div id="chat-area">
+
+            </div>
+            <div id="chat-friends">
+                <form autocomplete="off" id="friends-form">
+                    <input type="text" id="invite-input" placeholder="add user" class="chat-input"/>
+                    <button type="submit" class="friends-add"><i class="fas fa-user-plus"></i></button>
+                </form>
+                <div id="friends-select">
+                    <button type="button" class="friends-btn" id="friends-select-btn">friends</button>
+                    <div id="friends-option">
+                        <button type="button" class="friends-btn select-btn"><i class="fas fa-user-minus"></i></button>
+                        <button type="button" class="friends-btn select-btn"><i class="fas fa-user-check"></i></button>
+                    </div>
+                </div>
+                <div id="invite" class="selected-list">
+                    <div th:each="invite: ${invites}">
+                        <p th:text="${invite.getInvitingUsername()}"></p>
+                    </div>
+                </div>
+                <!--<div id="invitation" class="selected-list">
+                    <div th:each="invitation: ${invitations}">
+                        <p th:text="${invite.getInvitedUsername()}"></p>
+                    </div>
+                </div>
+                <div id="friend" class="selected-list">
+                    <div th:each="friend: ${friends}">
+                        <p th:text="${friend}"></p>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+        <form id="chat-form" autocomplete="off" name="chat-form">
+            <input type="text" id="message" placeholder="Type your message..." class="chat-input"/>
+            <button type="submit" class="chat-send">Send</button>
+        </form>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script th:inline="javascript">
+        var username = [[${#authentication.getPrincipal().getUsername()}]];
+        var destination = '';
+    </script>
+<script type="text/javascript" th:src="@{/js/private.js}"></script>
+<script type="text/javascript" th:src="@{/js/webSocketPrivate.js}"></script>
+</body>
+</html>
