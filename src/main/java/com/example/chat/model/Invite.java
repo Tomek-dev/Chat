@@ -1,12 +1,13 @@
 package com.example.chat.model;
 
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
 @Builder
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Entity
 @Getter
 public class Invite {
 

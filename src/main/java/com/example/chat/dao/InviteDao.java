@@ -6,10 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface InviteDao extends JpaRepository<Invite, Long> {
     void deleteByInvitedIdAndInviting(Long invited, User inviting);
     List<Invite> findByInvited(User invites);
     List<Invite> findByInviting(User invitations);
+    Optional<Invite> findByInvitingIdAndInvited(Long id, User user);
 }

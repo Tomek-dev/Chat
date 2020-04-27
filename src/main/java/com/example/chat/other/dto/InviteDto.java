@@ -8,6 +8,7 @@ import lombok.Setter;
 public class InviteDto {
 
     private Long invitedId;
+    private Long invitingId;
     private String invitedUsername;
     private String invitingUsername;
 }

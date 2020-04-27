@@ -33,18 +33,27 @@
                     </div>
                 </div>
                 <div id="invite" class="selected-list">
-                    <div th:each="invite: ${invites}">
+                    <div class="selected-list-element" th:each="invite: ${invites}">
                         <p th:text="${invite.getInvitingUsername()}"></p>
+                        <form th:action="@{/friend/{id}/add(id = ${invite.getInvitedId()})}" method="post">
+                            <button type="submit" class="list-btn"><i class="fa fa-check"></i></button>
+                        </form>
                     </div>
                 </div>
                 <div id="invitation" class="selected-list">
-                    <div th:each="invitation: ${invitations}">
-                        <p th:text="${invite.getInvitedUsername()}"></p>
+                    <div class="selected-list-element" th:each="invitation: ${invitations}">
+                        <p th:text="${invitation.getInvitedUsername()}"></p>
+                        <form th:action="@{/invite/{id}(id = ${invitation.getInvitedId()})}" method="post">
+                            <button type="submit" class="list-btn"><i class="fa fa-trash"></i></button>
+                        </form>
                     </div>
                 </div>
                 <div id="friend" class="selected-list">
-                    <div th:each="friend: ${friends}">
-                        <p th:text="${friend}"></p>
+                    <div class="selected-list-element friend-element" th:value="${friend.getUsername()}" th:each="friend: ${friends}">
+                        <p th:text="${friend.getUsername()}"></p>
+                        <form th:action="@{/friend/{id}/remove(id = ${friend.getId()})}" method="post">
+                            <button type="submit" class="list-btn"><i class="fa fa-trash"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>

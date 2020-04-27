@@ -1,6 +1,7 @@
 package com.example.chat.controller;
 
 import com.example.chat.model.User;
+import com.example.chat.service.FriendService;
 import com.example.chat.service.InviteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -12,10 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ChatController {
 
     private InviteService inviteService;
+    private FriendService friendService;
 
     @Autowired
-    public ChatController(InviteService inviteService) {
+    public ChatController(InviteService inviteService, FriendService friendService) {
         this.inviteService = inviteService;
+        this.friendService = friendService;
     }
 
     @GetMapping("/public")
@@ -27,7 +30,7 @@ public class ChatController {
     public String privateChat(Model model, @AuthenticationPrincipal User user){
         model.addAttribute("invites", inviteService.findInvites(user));
         model.addAttribute("invitations", inviteService.findInvitations(user));
-        model.addAttribute("friends", "");
+        model.addAttribute("friends", friendService.findFriends(user));
         return "private";
     }
 }

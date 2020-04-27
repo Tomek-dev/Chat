@@ -29,6 +29,11 @@ public class User implements UserDetails {
 
     private String password;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="friends",
+    joinColumns = @JoinColumn(name="person_A_id", referencedColumnName="id"), inverseJoinColumns = @JoinColumn(name="person_B_id", referencedColumnName="id"))
+    private Set<User> friends = new HashSet<>();
+
     @OneToMany(mappedBy = "invited", orphanRemoval = true)
     private Set<Invite> invites = new HashSet<>();
 
@@ -73,4 +78,13 @@ public class User implements UserDetails {
         return password;
     }
 
+    public void addFriend(User user){
+        this.friends.add(user);
+        user.getFriends().add(this);
+    }
+
+    public void removeFriend(User user){
+        this.friends.remove(user);
+        user.getFriends().remove(this);
+    }
 }

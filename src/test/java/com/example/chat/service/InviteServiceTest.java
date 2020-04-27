@@ -47,6 +47,7 @@ public class InviteServiceTest {
                 .build();
         inviting = UserBuilder.builder()
                 .username("inviting")
+                .id(4L)
                 .build();
         invite = Invite.builder()
                 .inviting(inviting)
@@ -66,6 +67,7 @@ public class InviteServiceTest {
         assertEquals("invited", invites.get(0).getInvitedUsername());
         assertEquals("inviting", invites.get(0).getInvitingUsername());
         assertEquals(4L, invites.get(0).getInvitedId());
+        assertEquals(4L, invites.get(0).getInvitingId());
     }
 
     @Test

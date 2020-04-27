@@ -168,3 +168,23 @@ body{
 #invite, #invitation{
     display: none;
 }
+
+.list-btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+.selected-list-element p{
+    margin: 4px;
+    color: #fff;
+}
+
+.selected-list-element{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 5px;
+}

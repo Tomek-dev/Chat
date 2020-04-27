@@ -23,8 +23,9 @@ public class InviteController {
         inviteService.add(username, user);
     }
 
-    @DeleteMapping("/invite/{id}")
-    public void delete(@PathVariable Long id, @AuthenticationPrincipal User user){
+    @PostMapping("/invite/{id}")
+    public String delete(@PathVariable Long id, @AuthenticationPrincipal User user){
         inviteService.delete(id, user);
+        return "redirect:/private";
     }
 }
