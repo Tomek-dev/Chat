@@ -88,12 +88,7 @@ body{
 }
 
 .chat-message p{
-    margin: 6px 0;
-    width: 90%;
-}
-
-.chat-message span{
-    width: 10%;
+    margin: 6px 0 6px 6px;
 }
 
 #chat-menu{

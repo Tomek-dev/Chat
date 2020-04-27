@@ -206,3 +206,17 @@ body{
     text-decoration: none;
     color: #fff;
 }
+
+.conversation{
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.friend-element{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #fff;
+}

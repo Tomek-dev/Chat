@@ -20,6 +20,9 @@
         <div class="error">
 
         </div>
+        <div class="conversation">
+            Select friend
+        </div>
         <div id="chat-content">
             <div id="chat-area">
 
@@ -53,8 +56,8 @@
                     </div>
                 </div>
                 <div id="friend" class="selected-list">
-                    <div class="selected-list-element friend-element" th:value="${friend.getUsername()}" th:each="friend: ${friends}">
-                        <p th:text="${friend.getUsername()}"></p>
+                    <div class="selected-list-element" th:each="friend: ${friends}">
+                        <button class="friend-element" th:value="${friend.getUsername()}" type="button" th:text="${friend.getUsername()}"></button>
                         <form th:action="@{/friend/{id}/remove(id = ${friend.getId()})}" method="post">
                             <button type="submit" class="list-btn"><i class="fa fa-trash"></i></button>
                         </form>
@@ -75,7 +78,7 @@
         var destination = '';
     </script>
 <script type="text/javascript" th:src="@{/js/select.js}"></script>
-<script type="text/javascript" th:src="@{/js/private.js}"></script>
 <script type="text/javascript" th:src="@{/js/webSocketPrivate.js}"></script>
+<script type="text/javascript" th:src="@{/js/private.js}"></script>
 </body>
 </html>
