@@ -29,7 +29,7 @@ public class AuthController {
     }
 
     @PostMapping("/sign-up")
-    public String signUp(@ModelAttribute SignUp signUp, BindingResult bindingResult){
+    public String signUp(@Valid @ModelAttribute SignUp signUp, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "register";
         }

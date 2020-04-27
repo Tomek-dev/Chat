@@ -34,19 +34,19 @@ public class Start {
                 .username("Woody")
                 .password(passwordEncoder.encode("password"))
                 .roles(Collections.singleton(Role.USER))
-                .email("email")
+                .email("woody@email.email")
                 .build();
         users[1] = UserBuilder.builder()
                 .username("BuzzLightYear")
                 .password(passwordEncoder.encode("password"))
                 .roles(Collections.singleton(Role.USER))
-                .email("email")
+                .email("buzzlightyear@email.email")
                 .build();
         users[2] = UserBuilder.builder()
                 .username("Andy")
                 .password(passwordEncoder.encode("password"))
                 .roles(Collections.singleton(Role.USER))
-                .email("email")
+                .email("andy@email.email")
                 .build();
         Invite invite = Invite.builder()
                 .invited(users[0])
