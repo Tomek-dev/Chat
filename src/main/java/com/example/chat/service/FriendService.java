@@ -40,6 +40,7 @@ public class FriendService {
         User friend = friendOptional.orElseThrow(UserNotFoundException::new);
         user.removeFriend(friend);
         userDao.save(user);
+        //userDao.save(friend);
     }
 
     public void addFriend(Long id, User user){
@@ -47,5 +48,7 @@ public class FriendService {
         Invite invite = inviteOptional.orElseThrow(InviteNotFoundException::new);
         user.addFriend(invite.getInviting());
         userDao.save(user);
+        //userDao.save(invite.getInviting());
+        inviteDao.delete(invite);
     }
 }

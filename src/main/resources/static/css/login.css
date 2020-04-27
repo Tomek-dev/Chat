@@ -45,7 +45,7 @@ body{
     outline: none;
     width: 70%;
     padding: 0 5px;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .login-btn{
@@ -54,7 +54,7 @@ body{
     border: none;
     outline: none;
     padding: 12px 24px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
 }

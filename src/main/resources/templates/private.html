@@ -9,6 +9,10 @@
 </head>
 <body>
 <div id="chat-page">
+    <div id="chat-menu">
+        <a class="menu-link" th:href="@{/}">menu</a>
+        <a class="menu-link" th:href="@{/logout}">logout</a>
+    </div>
     <div id="chat-container">
         <div id="chat-header">
             <h1>Private Chat</h1>
@@ -35,7 +39,7 @@
                 <div id="invite" class="selected-list">
                     <div class="selected-list-element" th:each="invite: ${invites}">
                         <p th:text="${invite.getInvitingUsername()}"></p>
-                        <form th:action="@{/friend/{id}/add(id = ${invite.getInvitedId()})}" method="post">
+                        <form th:action="@{/friend/{id}/add(id = ${invite.getInvitingId()})}" method="post">
                             <button type="submit" class="list-btn"><i class="fa fa-check"></i></button>
                         </form>
                     </div>

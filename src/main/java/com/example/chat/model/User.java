@@ -8,9 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
@@ -29,7 +27,7 @@ public class User implements UserDetails {
 
     private String password;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name="friends",
     joinColumns = @JoinColumn(name="person_A_id", referencedColumnName="id"), inverseJoinColumns = @JoinColumn(name="person_B_id", referencedColumnName="id"))
     private Set<User> friends = new HashSet<>();
@@ -86,5 +84,18 @@ public class User implements UserDetails {
     public void removeFriend(User user){
         this.friends.remove(user);
         user.getFriends().remove(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return username.equals(user.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username);
     }
 }

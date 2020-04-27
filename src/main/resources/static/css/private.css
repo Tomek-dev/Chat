@@ -129,7 +129,7 @@ body{
     outline: none;
     width: 70%;
     padding: 0 5px;
-    font-size: 18px;
+    font-size: 1.1rem;
 }
 
 #chat-form{
@@ -187,4 +187,22 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 2px 5px;
+}
+
+#chat-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.menu-link{
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: #fff;
 }

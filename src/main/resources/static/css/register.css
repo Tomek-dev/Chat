@@ -45,7 +45,7 @@ body{
     background-color: transparent;
     outline: none;
     padding: 0 5px;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .register-btn{
@@ -54,7 +54,7 @@ body{
     border: none;
     outline: none;
     padding: 12px 24px;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
 }
@@ -62,7 +62,7 @@ body{
 .register-about{
     color: #fff;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .register-about p{

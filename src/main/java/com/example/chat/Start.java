@@ -55,6 +55,6 @@ public class Start {
         userDao.saveAll(Arrays.asList(users));
         inviteDao.save(invite);
         users[0].addFriend(users[1]);
-        userDao.saveAll(Arrays.asList(users));
+        userDao.save(users[0]);
     }
 }
